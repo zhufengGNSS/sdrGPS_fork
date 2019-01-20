@@ -1,0 +1,29 @@
+/*:*****************************************************
+* Software IF GPS Receiver Project 
+*
+* Author:
+*        Yu Lu, luyu1974@gmail.com
+*        Aug, 2008
+*******************************************************/
+
+First make sure your OS has gcc-c++ and ncurses packages are installed. 
+
+Run the following commands to verify:
+
+# rpm -qa | grep gcc
+
+# rpm -qa | grep ncurses
+
+Then run the make command to compile
+
+# make
+
+Finally run the executable 
+
+# ./sdrGPS
+
+The display requires at least 25X100 windows size to display all the information, so be prepared to change your console size if the program complains about that. 
+
+The logged data are saved at data/ folder. Use Matlab to plot them. For the file format, please read the source code in gps_controller.c, gps_nav_fix.cc and kalman.cc. In the scilab/ folder, there are four script file to display the processing result. "disp_tracking.m" to show the tracking loop status, "disp_ls_fix.m" to show the LS fix result, "disp_p_fix.m" to show the P-model KF result, "disp_pv_fix.m" to show the PV-model KF result. 
+
+Enjoy. 
