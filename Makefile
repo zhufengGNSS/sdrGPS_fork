@@ -3,6 +3,7 @@
 # by Yu lu, luyu1974@gmail.com
 #  Dec,2004
 #
+# 需要首先在ubuntu平台上安装 ncurses 程序库
 
 
 
@@ -36,7 +37,8 @@ LD  = g++
 
 CFLAGS  = -Wall $(OPTIM) $(DEBUG)  
 CXXFLAGS = $(CFLAGS)
-APPCXXFLAGS = $(CFLAGS) -lpanel -lncurses -lpthread
+APPCXXFLAGS = $(CFLAGS) -lpanel -lncurses -pthread
+APPCXXFLAGS2 = -lpanel -lncurses
 
 EXECUTABLE = sdrGPS
 SOFTGPSLIB = libsoftrcvr.a
@@ -81,7 +83,7 @@ $(LIB_OBJ_PATH)%.o:$(LIB_PATH)%.cc
 
 
 $(EXECUTABLE): $(SOFTGPSLIB) $(MYOBJ)
-	$(CC) $(APPCXXFLAGS) -o $@ $(MYOBJ) $(SOFTGPSLIB)
+	$(CC) $(APPCXXFLAGS) -o $@ $(MYOBJ) $(SOFTGPSLIB) $(APPCXXFLAGS2)
 
 $(SOFTGPSLIB):$(LIBOBJ)
 	@echo 
